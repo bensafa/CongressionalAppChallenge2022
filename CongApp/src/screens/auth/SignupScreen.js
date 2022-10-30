@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useReducer } from 'react';
 import { useState } from 'react';
-import { StyleSheet, Text, View, Button as RNButton } from 'react-native';
+import { StyleSheet, Text, View, Button as RNButton, Image } from 'react-native';
 
 import { Button, InputField, ErrorMessage } from '../../components'
 import Firebase from '../../../config/firebase'
@@ -51,6 +51,7 @@ export default function SignupScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
+      <Image style={styles.image} source={require('../../../assets/CongAppSplash.png')}/>
       <StatusBar style='dark-content' />
       <Text style={styles.title}>Sign up</Text>
       <View style={styles.inputView}>
@@ -80,7 +81,7 @@ export default function SignupScreen({ navigation }) {
           }}
           containerStyle={{
             backgroundColor: '#fff',
-            marginBottom: 16,
+            marginBottom: 14,
             borderWidth: 2,
             flex: 1,
             marginLeft: 5,
@@ -101,7 +102,7 @@ export default function SignupScreen({ navigation }) {
         }}
         containerStyle={{
           backgroundColor: '#fff',
-          marginBottom: 16,
+          marginBottom: 14,
           borderWidth: 2,
         }}
         leftIcon='email'
@@ -119,7 +120,7 @@ export default function SignupScreen({ navigation }) {
         }}
         containerStyle={{
           backgroundColor: '#fff',
-          marginBottom: 16,
+          marginBottom: 14,
           borderWidth: 2,
         }}
         leftIcon='lock'
@@ -166,12 +167,17 @@ const styles = StyleSheet.create({
     color: 'black',
     paddingBottom: 20,
     fontFamily: 'notoserif',
-    marginTop: '31%',
+    marginTop: '5%',
     marginHorizontal: '4%',
     paddingTop: '5%',
     borderTopWidth: 1,
   },
   inputView: {
     flexDirection: 'row',
+  },
+  image: {
+      width: null,
+      height: null,
+      aspectRatio: 13/4,
   },
 });

@@ -32,7 +32,7 @@ function SettingScreen() {
         }).catch((e) => {
             console.log('Error:',e)
         });
-    });
+    }, []);
 
     return (
         <View style={containerStyles.mainView}>
@@ -48,8 +48,48 @@ function SettingScreen() {
                 </View>
             </View>
             <View style={containerStyles.buttonContainer}>
+                <Pressable style={itemStyles.button} onPress={() => {}}>
+                    <Text style={textStyles.bodyText}>Account Info</Text>
+                </Pressable>
+            </View>
+            <View style={containerStyles.buttonContainer}>
+                <Pressable style={itemStyles.button} onPress={() => {}}>
+                    <Text style={textStyles.bodyText}>Preferences</Text>
+                </Pressable>
+            </View>
+            <View style={containerStyles.buttonContainer}>
+                <Pressable style={itemStyles.button} onPress={() => {}}>
+                    <Text style={textStyles.bodyText}>About</Text>
+                </Pressable>
+            </View>
+            <View style={containerStyles.buttonContainer}>
+                <Pressable style={itemStyles.button} onPress={() => {}}>
+                    <Text style={textStyles.bodyText}></Text>
+                </Pressable>
+            </View>
+            <View style={containerStyles.buttonContainer}>
+                <Pressable style={itemStyles.button} onPress={() => {}}>
+                    <Text style={textStyles.bodyText}></Text>
+                </Pressable>
+            </View>
+            <View style={containerStyles.buttonContainer}>
+                <Pressable style={itemStyles.button} onPress={() => {}}>
+                    <Text style={textStyles.bodyText}></Text>
+                </Pressable>
+            </View>
+            <View style={containerStyles.buttonContainer}>
+                <Pressable style={itemStyles.button} onPress={() => {}}>
+                    <Text style={textStyles.bodyText}></Text>
+                </Pressable>
+            </View>
+            <View style={containerStyles.buttonContainer}>
+                <Pressable style={itemStyles.button} onPress={() => {}}>
+                    <Text style={textStyles.bodyText}></Text>
+                </Pressable>
+            </View>
+            <View style={containerStyles.buttonContainer}>
                 <Pressable style={itemStyles.button} onPress={handleSignOut}>
-                    <Text style={textStyles.bodyText}>Log Out</Text>
+                    <Text style={textStyles.logOutText}>Log Out</Text>
                 </Pressable>
             </View>
         </View>
@@ -65,6 +105,12 @@ const textStyles = StyleSheet.create({
         fontFamily: 'sans-serif-light',
     },
     bodyText: {
+        fontSize: 21,
+        textAlign: 'center',
+        marginHorizontal: '7%',
+        fontFamily: 'sans-serif',
+    },
+    logOutText: {
         fontSize: 21,
         textAlign: 'center',
         marginHorizontal: '7%',
@@ -94,7 +140,7 @@ const containerStyles = StyleSheet.create({
         backgroundColor: '#f2f2f2',
     },
     buttonContainer: {
-        height: '9%',
+        height: '9.1%',
         width: '100%',
         backgroundColor: 'white',
     },
@@ -103,6 +149,7 @@ const containerStyles = StyleSheet.create({
         height: '18%',
         width: '100%',
         backgroundColor: '#b9ebd6',
+        borderBottomWidth: 2,
     },
     infoView: {
         flex: 3,
@@ -120,8 +167,7 @@ const itemStyles = StyleSheet.create({
         height: '100%',
         width: '100%',
         flexDirection: 'row',
-        borderTopWidth: 1,
-        borderBottomWidth: 1,
+        borderBottomWidth: 2,
         alignItems: 'center',
     }
 });

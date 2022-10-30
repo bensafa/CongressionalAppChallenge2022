@@ -12,8 +12,6 @@ function SurveyRedirectScreen ({ navigation, route: { params } }) {
 
     const [dummyQuestions, setDummyQuestions] = useState(questions);
 
-    const [checkedArr, setCheckedArr] = useState([]);
-
     // useEffect(() => {
     //     // for(let item of questions) {
     //     //     console.log("item:", item);
@@ -31,7 +29,7 @@ function SurveyRedirectScreen ({ navigation, route: { params } }) {
         const newData = [...dummyQuestions];
         newData[index].checked = !item.checked;
         setDummyQuestions(newData);
-        console.log("newdata: ", newData);
+        //console.log("newdata: ", newData);
         // console.log("checked array", checkedArr);
         // let list = checkedArr;
         // console.log("index:", index);
@@ -42,7 +40,9 @@ function SurveyRedirectScreen ({ navigation, route: { params } }) {
     }
 
     const submit = () => {
-
+        let checkedArr = dummyQuestions.map(x => x.checked);
+        console.log('checkedArr:', checkedArr);
+        navigation.navigate('Result', { checkedArr: checkedArr });
     }
 
     return (
@@ -56,7 +56,7 @@ function SurveyRedirectScreen ({ navigation, route: { params } }) {
                 horizontal={false}
                 ListFooterComponent={
                     <View style={containerStyles.submitView}>
-                        <Pressable>
+                        <Pressable onPress={() => submit()}>
                             <Text style={textStyles.submit}>Submit</Text>
                         </Pressable>
                     </View>
@@ -66,6 +66,7 @@ function SurveyRedirectScreen ({ navigation, route: { params } }) {
                         <View style={containerStyles.questionView}>
                             <Text style={textStyles.bodyText}>{item.question}</Text>
                             <CheckBox
+                                style={textStyles.check}
                                 value={item.checked || false}
                                 onValueChange={() => check(item, item.id)}
                             />
@@ -93,6 +94,7 @@ const textStyles = StyleSheet.create({
         marginVertical: '3%',
         marginHorizontal: '4%',
         fontFamily: 'sans-serif-condensed',
+        flex: 9,
     },
     submit: {
         fontSize: 31,
@@ -111,8 +113,12 @@ const textStyles = StyleSheet.create({
         position: 'absolute',
     },
     check: {
-        width: '50%',
+        width: '7%',
+        aspectRatio: 1,
+        alignSelf: 'center',
         backgroundColor: '#ceebc5',
+        flex: 1,
+        marginRight: '4%',
     }
 });
 

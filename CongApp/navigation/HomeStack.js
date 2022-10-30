@@ -9,6 +9,7 @@ import SurveyRedirectScreen from '../src/screens/main/SurveyRedirectScreen';
 import CommsScreen from '../src/screens/main/CommsScreen';
 import IMScreen from '../src/screens/main/IMScreen';
 import SettingScreen from '../src/screens/main/SettingScreen';
+import ResultScreen from '../src/screens/main/ResultScreen';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -21,6 +22,7 @@ function SurveyStack() {
     <Stack.Navigator>
       <Stack.Screen name='Survey' component={SurveyScreen} options={{ headerShown: false }}/>
       <Stack.Screen name='SurveyRedirect' component={SurveyRedirectScreen} options={{ headerShown: false }}/>
+      <Stack.Screen name='Result' component={ResultScreen} options={{ headerShown: false }}/>
     </Stack.Navigator>
   )
 }

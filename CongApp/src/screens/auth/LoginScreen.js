@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { useState } from 'react';
-import { StyleSheet, Text, View, Button as RNButton } from 'react-native';
+import { StyleSheet, Text, View, Button as RNButton, Image } from 'react-native';
 
 import { Button, InputField, ErrorMessage } from '../../components'
 import Firebase from '../../../config/firebase'
@@ -37,68 +37,71 @@ export default function LoginScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <StatusBar style='dark-content' />
-      <Text style={styles.title}>Log in</Text>
-      <InputField
-        inputStyle={{
-          fontSize: 16,
-          fontFamily: 'notoserif',
-        }}
-        containerStyle={{
-          backgroundColor: '#fff',
-          marginBottom: 16,
-          borderWidth: 2,
-          borderRadius: 8,
-        }}
-        leftIcon='email'
-        placeholder='Enter email'
-        autoCapitalize='none'
-        keyboardType='email-address'
-        textContentType='emailAddress'
-        autoFocus={true}
-        value={email}
-        onChangeText={text => setEmail(text)}
-      />
-      <InputField
-        inputStyle={{
-          fontSize: 16,
-          fontFamily: 'notoserif',
-        }}
-        containerStyle={{
-          backgroundColor: '#fff',
-          marginBottom: 16,
-          borderWidth: 2,
-          borderRadius: 8,
-        }}
-        leftIcon='lock'
-        placeholder='Enter password'
-        autoCapitalize='none'
-        autoCorrect={false}
-        secureTextEntry={passwordVisibility}
-        textContentType='password'
-        rightIcon={rightIcon}
-        value={password}
-        onChangeText={text => setPassword(text)}
-        handlePasswordVisibility={handlePasswordVisibility}
-      />
-      {loginError ? <ErrorMessage error={loginError} visible={true} /> : null}
-      <Button
-        onPress={onLogin}
-        backgroundColor='#5adba5'
-        title='Login'
-        tileColor='#fff'
-        titleSize={20}
-        containerStyle={{
-          marginBottom: 24
-        }}
-      />
-      <View style={styles.newUserView}>
-        <Text style={styles.newUser}>New User?</Text>
-        <RNButton
-          onPress={() => navigation.navigate('Signup')}
-          title='Sign Up'
-          color='rgb(120, 120, 120)'
+      <Image style={styles.image} source={require('../../../assets/CongAppSplash.png')}/>
+      <View style={styles.authView}>
+        <StatusBar style='dark-content' />
+        <Text style={styles.title}>Log in</Text>
+        <InputField
+          inputStyle={{
+            fontSize: 16,
+            fontFamily: 'notoserif',
+          }}
+          containerStyle={{
+            backgroundColor: '#fff',
+            marginBottom: 16,
+            borderWidth: 2,
+            borderRadius: 8,
+          }}
+          leftIcon='email'
+          placeholder='Enter email'
+          autoCapitalize='none'
+          keyboardType='email-address'
+          textContentType='emailAddress'
+          autoFocus={false}
+          value={email}
+          onChangeText={text => setEmail(text)}
         />
+        <InputField
+          inputStyle={{
+            fontSize: 16,
+            fontFamily: 'notoserif',
+          }}
+          containerStyle={{
+            backgroundColor: '#fff',
+            marginBottom: 16,
+            borderWidth: 2,
+            borderRadius: 8,
+          }}
+          leftIcon='lock'
+          placeholder='Enter password'
+          autoCapitalize='none'
+          autoCorrect={false}
+          secureTextEntry={passwordVisibility}
+          textContentType='password'
+          rightIcon={rightIcon}
+          value={password}
+          onChangeText={text => setPassword(text)}
+          handlePasswordVisibility={handlePasswordVisibility}
+        />
+        {loginError ? <ErrorMessage error={loginError} visible={true} /> : null}
+        <Button
+          onPress={onLogin}
+          backgroundColor='#5adba5'
+          title='Login'
+          tileColor='#fff'
+          titleSize={20}
+          containerStyle={{
+            marginBottom: 24
+          }}
+        />
+        <View style={styles.newUserView}>
+          <Text style={styles.newUser}>New User?</Text>
+          <RNButton
+            onPress={() => navigation.navigate('Signup')}
+            title='Sign Up'
+            color='rgb(120, 120, 120)'
+          />
+        </View>
       </View>
     </View>
   );
@@ -110,6 +113,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgb(240, 245, 255)',
     paddingTop: 40,
     paddingHorizontal: 12,
+    flexDirection: 'column',
   },
   title: {
     fontSize: 34,
@@ -117,7 +121,7 @@ const styles = StyleSheet.create({
     color: 'black',
     paddingBottom: 20,
     fontFamily: 'notoserif',
-    marginTop: '31%',
+    marginTop: '8%',
     marginHorizontal: '4%',
     paddingTop: '5%',
     borderTopWidth: 1,
@@ -135,5 +139,13 @@ const styles = StyleSheet.create({
     padding: '4%',
     borderWidth: 2,
     borderRadius: 10,
+  },
+  image: {
+      width: null,
+      height: null,
+      aspectRatio: 13/4,
+  },
+  authView: {
+    height: '87%'
   },
 });

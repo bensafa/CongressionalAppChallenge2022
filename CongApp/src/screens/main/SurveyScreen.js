@@ -113,9 +113,9 @@ const textStyles = StyleSheet.create({
         fontFamily: 'sans-serif-light',
     },
     listText: {
-        fontSize: 24,
+        fontSize: 27,
         marginVertical: '5%',
-        marginHorizontal: '7%',
+        marginLeft: '5%',
         fontFamily: 'Zag-Regular',
     },
     buttonText: {
@@ -135,7 +135,7 @@ const containerStyles = StyleSheet.create({
     mainView: {
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: '#f2f2f2',
+        backgroundColor: '#bae8d3',
     },
     listView: {
         height: '50%',
@@ -146,14 +146,16 @@ const containerStyles = StyleSheet.create({
     },
     buttonContainer: {
         width: '100%',
-        backgroundColor: '#bfdbce',
+        height: 80,
+        backgroundColor: '#67dba6',
         borderTopWidth: 1,
-        borderColor: '#89ad9d',
+        borderColor: '#4cba88',
         flexDirection: 'row',
     },
     listTextContainer: {
         flexDirection: 'row',
         justifyContent: 'flex-start',
+        alignSelf: 'center',
         flex: 2,
     },
     listButtonContainer: {
@@ -173,7 +175,7 @@ const itemStyles = StyleSheet.create({
         flexDirection: 'row',
         alignSelf: 'center',
         justifyContent: 'center',
-        backgroundColor: 'rgb(220, 240, 240)',
+        backgroundColor: 'white',
         borderRadius: 20,
         borderWidth: 1,
         borderColor: '#0f3022',
