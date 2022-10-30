@@ -137,7 +137,7 @@ const containerStyles = StyleSheet.create({
     mainView: {
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: '#f2f2f2',
+        backgroundColor: '#afd1f0',
     },
     buttonContainer: {
         height: '9.1%',
@@ -148,7 +148,7 @@ const containerStyles = StyleSheet.create({
         flexDirection: 'row',
         height: '18%',
         width: '100%',
-        backgroundColor: '#b9ebd6',
+        backgroundColor: '#afd1f0',
         borderBottomWidth: 2,
     },
     infoView: {

@@ -135,21 +135,21 @@ const containerStyles = StyleSheet.create({
     mainView: {
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: '#bae8d3',
+        backgroundColor: '#afd1f0',
     },
     listView: {
         height: '50%',
         flex: 1,
         margin: '2%',
         borderTopWidth: 3,
-        borderColor: '#567a6a',
+        borderColor: '#3e76a8',
     },
     buttonContainer: {
         width: '100%',
         height: 80,
-        backgroundColor: '#67dba6',
+        backgroundColor: '#8ac7ff',
         borderTopWidth: 1,
-        borderColor: '#4cba88',
+        borderColor: '#6da4d6',
         flexDirection: 'row',
     },
     listTextContainer: {

@@ -124,7 +124,7 @@ const containerStyles = StyleSheet.create({
     mainView: {
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: '#3f80ab',
+        backgroundColor: '#8ac7ff',
     },
     miniView: {
         marginVertical: '8%',
