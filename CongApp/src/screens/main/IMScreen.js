@@ -74,7 +74,7 @@ function IMScreen({ navigation, route: { params } }) {
                 onSend={messages => onSend(messages)}
                 user={{
                     _id: auth?.currentUser?.email,
-                    avatar: 'https://i.pravatar.cc/300',
+                    avatar: 'https://cdn.discordapp.com/attachments/699076816647749664/1037074125342134282/profile.png',
                 }}
             />
             <Pressable style={textStyles.back} onPress={() => navigation.goBack()}>

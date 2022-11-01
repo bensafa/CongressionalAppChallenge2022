@@ -25,7 +25,7 @@ function CommsScreen({ navigation }) {
             const newData = masterDataSource.filter(
                 function (item) {
                     const itemData = item.firstName + ' ' + item.lastName
-                        ? item.name.toUpperCase()
+                        ? item.firstName.toUpperCase() || item.lastName.toUpperCase()
                         : ''.toUpperCase();
                     const textData = term.toUpperCase();
                     return itemData.indexOf(textData) > -1;
