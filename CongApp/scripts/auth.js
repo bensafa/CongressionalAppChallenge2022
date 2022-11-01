@@ -1,4 +1,5 @@
 
+
 // listen for auth status changes
 auth.onAuthStateChanged(user => {
     if (user) {
@@ -31,8 +32,8 @@ signupForm.addEventListener('submit', (e) => {
         });
 
     }).then(() => {
-        db.collection(firstName+lastName).doc("dummyDoc").set({
-            text: "Welcome to your conversation with " + firstName + " " + lastName + "!",
+        db.collection(signupForm['signup-fname'].value + signupForm['signup-lname'].value).doc("dummyDoc").set({
+            text: "filler",
         });
         const modal = document.querySelector('#modal-signup');
         M.Modal.getInstance(modal).close();

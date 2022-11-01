@@ -15,7 +15,6 @@
             /* i love men */
             min-height: 100vh;
             flex-direction: column;
-            overflow-y:hidden;
         }
 
         main {
@@ -141,13 +140,14 @@
                 <div id="tabmessaging" class="tabcontent hide">
                             <div id="messages">
                             </div>
-                            <form id="message-form" action="#">
+                            <form id="message-form" action="#" style="padding-bottom: 10px;">
                                     <input  type="text" id="message" autocomplete="off">
                                     <label  for="message">Send a message...</label>
                                 <button id="submit" class="waves-effect waves-light btn blue lighten-3" type="submit" onclick="saveMessage(document.getElementById('message').value)">
                                     Send
                                 </button>
                             </form>
+                            <div id="footer"></div>
                 </div>
             </div>
         </div>

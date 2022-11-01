@@ -4,10 +4,16 @@ const loggedInLinks = document.querySelectorAll('.logged-in');
 const accountDetails = document.querySelector('.account-details');
 const firstName = document.querySelector('.navFirstName');
 const lastName = document.querySelector('.navLastName');
+
+let doctorName = "";
+
 const setupUI = (user) => {
   if (user) {
     // account info
     db.collection('doctors').doc(user.uid).get().then(doc => {
+      doctorName = doc.data().firstName + doc.data().lastName;
+      window.doctorName = doc.data().firstName + doc.data().lastName;
+      window.userEmail = user.email;
       const html = `
       <div>Logged in as Dr. ${doc.data().firstName} ${doc.data().lastName}</div>
       <div>Email: ${user.email}</div>
@@ -56,15 +62,29 @@ function makeid(length) {
 async function saveMessage(messageText) {
   // Add a new message entry to the Firebase database.
   try {
-    await db.collection('JaneDoe').doc(makeid(20)).set({
+    await db.collection(doctorName).doc(makeid(20)).set({
       _id: makeid(20),
       text: messageText,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       user: {_id: auth.currentUser.email, avatar: "https://cdn.discordapp.com/attachments/699076816647749664/1036964530296733756/image-removebg-preview.png"}
     });
+    $("#message").val("");
   }
   catch(error) {
     console.error('Error writing new message to Firebase Database', error);
   }
 }
 
+async function loadMessages() {
+  // i fuck dudes https://e621.net/posts/1301740
+  console.log(window.doctorName);
+  const messageHtml = (await db.collection(window.doctorName).get()).docs.map(doc => doc.data()).sort((a, b) => a.createdAt.seconds - b.createdAt.seconds).slice(0, 12).map(doc => `<div class="row"><div class="card-panel ${doc.user._id !== window.userEmail ? "left" : "right"}">${doc.text}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="${doc.user.avatar}" height="20px"><br>${(new Date(doc.createdAt.seconds * 1000)).toLocaleString()}</div></div>`).join("");
+  $("#messages").html(messageHtml);
+  if (messageHtml !== window.prevHtml) $("html, body").scrollTop($(document).height());
+  window.prevHtml = messageHtml;
+}
+
+setTimeout(() => {
+  loadMessages();
+  setInterval(loadMessages, 50);
+}, 2000);
